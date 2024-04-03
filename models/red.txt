@@ -1,0 +1,89 @@
+########## NAME
+red
+
+########## METADATA
+timeunit = m
+
+########## MACROS
+
+########## STATES
+d/dt(NFKBinactive)=-v+ kprod-kdeg*NFKBinactive
+d/dt(NFKBactive) = +v - k5*NFKBactive
+d/dt(IL10IC)=k6*med+IL10_block*k8*IL10IC/(km+IL10IC)-k11*IL10IC 
+d/dt(TNFEC)=k7*NFKBactive/(1+IL10_block*k28*IL10IC/(km+IL10IC))-k12*TNFEC
+d/dt(IL1bEC)=k13*NFKBactive/(1+IL10_block*k29*IL10IC/(km+IL10IC))-k15*IL1bEC
+d/dt(IL1RaEC)=k14*NFKBactive+IL10_block*k22*IL10IC/(km+IL10IC)-k16*IL1RaEC
+d/dt(IL1Rinactive)=k17-k18*IL1Rinactive-(k19*IL1Rinactive*IL1bEC)/(1+k20*IL1RaEC)
+d/dt(IL1Ractive)=(k19*IL1Rinactive*IL1bEC)/(1+k20*IL1RaEC)-k23*IL1Ractive 
+d/dt(med)=k30*NFKBactive/(1+k32*NFKBactive)-k31*med
+
+NFKBinactive(0)=0
+NFKBactive(0)=0
+IL10IC(0)=0
+TNFEC(0)=0
+IL1bEC(0)=0
+IL1RaEC(0)=0
+IL1Rinactive(0)=0
+IL1Ractive(0)=0
+med(0)=0
+
+########## PARAMETERS
+kprod=1
+kdeg=1
+k1=1
+k2=1
+k3=1
+k5=1
+k6=1
+k7=1
+k8=1 
+k11=1
+k12=1
+k13=1
+k14=1
+k15=1
+k16=1
+k17=1
+k18=1
+k19=1
+k20=1
+k21=1 
+k22=1 
+k23=1
+k28=1 
+k29=1 
+km=1 
+k30=1
+k31=1
+k32=1
+
+########## VARIABLES
+IL10_block = (1-IL10_blocked)
+v=(LPS*NFKBinactive*k1 + NFKBinactive*TNFEC*k2+k21*IL1Ractive*NFKBinactive)/(1+IL10_block*k3*IL10IC/(km+IL10IC))
+
+########## FUNCTIONS
+
+########## EVENTS
+e1 = gt(Wash, 0), TNFEC, 0, IL10IC, 0
+e2 = gt(IL10_in, 0), IL10IC, IL10IC+IL10_in
+e3 = gt(LPS, 0)
+e4 = le(LPS, 0)
+
+########## OUTPUTS
+
+########## INPUTS
+
+LPS = LPS @ 0
+IL10_blocked = IL10_blocked @ 0 // 0 = not blocked, 1 = blocked
+Wash = Wash @ 0
+IL10_in = IL10 @ 0
+
+########## FEATURES
+TNF = TNFEC
+NFKBactive = NFKBactive
+IL10 = IL10IC
+NFKBinactive = NFKBinactive
+IL1b = IL1bEC
+IL1Ra = IL1RaEC
+IL1Rinactive = IL1Rinactive
+IL1Ractive = IL1Ractive

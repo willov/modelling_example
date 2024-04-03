@@ -1,0 +1,37 @@
+########## NAME
+simple
+
+########## METADATA
+timeunit = m
+
+########## MACROS
+
+########## STATES
+d/dt(NFKBinactive) = -vact + vinact
+d/dt(NFKBactive)   =  vact - vinact
+
+NFKBinactive(0)=100
+NFKBactive(0)=0
+
+########## PARAMETERS
+k1 = 1 //values does not mean anything, overwritten later
+k2 = 1
+
+########## VARIABLES
+vact=LPS*NFKBinactive*k1 
+vinact=NFKBactive*k2 
+
+########## FUNCTIONS
+
+########## EVENTS
+event_LPS_on = LPS>0 //only to handle numerical issues
+event_LPS_off = LPS<=0 // only to handle numerical issues
+
+########## OUTPUTS
+
+########## INPUTS
+LPS = LPS @ 0
+
+########## FEATURES
+NFKBactive = NFKBactive
+NFKBinactive = NFKBinactive
