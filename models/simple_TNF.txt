@@ -24,8 +24,8 @@ k4 = 1
 ########## VARIABLES
 vact=LPS*NFKBinactive*k1 
 vinact=NFKBactive*k2 
-vsynt = k2*NFKBactive
-vdeg = k3*TNFEC
+vsynt = k3*NFKBactive
+vdeg = k4*TNFEC
 ########## FUNCTIONS
 
 ########## EVENTS
