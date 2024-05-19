@@ -7,31 +7,31 @@ timeunit = m
 ########## MACROS
 
 ########## STATES
-d/dt(NFKBinactive) = -vact + vinact
-d/dt(NFKBactive)   =  vact - vinact
+ddt_glucose_OGTT = -v1
+ddt_glucose_blood = v1 -v2
 
-NFKBinactive(0)=100
-NFKBactive(0)=0
+
+glucose_OGTT(0) = 0 // mg
+glucose_blood(0) = 5 // mmol/L
 
 ########## PARAMETERS
 k1 = 1 //values does not mean anything, overwritten later
 k2 = 1
 
 ########## VARIABLES
-vact=LPS*NFKBinactive*k1 
-vinact=NFKBactive*k2 
+v1 = k1 * glucose_OGTT
+v2 = k2 * glucose_blood
 
 ########## FUNCTIONS
 
 ########## EVENTS
-event_LPS_on = LPS>0 //only to handle numerical issues
-event_LPS_off = LPS<=0 // only to handle numerical issues
+glucose_event = glucose_input>0, glucose_OGTT, glucose_OGTT+glucose_input
 
 ########## OUTPUTS
 
 ########## INPUTS
-LPS = LPS @ 0
+glucose_input = glucose_input @ 0
 
 ########## FEATURES
-NFKBactive = NFKBactive
-NFKBinactive = NFKBinactive
+Glucose OGTT = glucose_OGTT
+Glucose in blood = glucose_blood
