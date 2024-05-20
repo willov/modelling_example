@@ -59,6 +59,4 @@ glucose_input = glucose_input @ 0
 //Glucose in stomach = glucose_OGTT
 Glucose in blood = glucose_blood
 Insulin in blood = insulin_blood
-Glucose in liver = glucose_liver
-insulin production = v4
-insulin production in response to glucose = k4 * glucose_blood^n/(kMglu^n + glucose_blood^n)
+//Glucose in liver = glucose_liver

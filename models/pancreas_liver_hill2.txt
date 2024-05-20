@@ -57,4 +57,4 @@ glucose_input = glucose_input @ 0
 //Glucose in stomach = glucose_OGTT
 Glucose in blood = glucose_blood
 Insulin in blood = insulin_blood
-Glucose in liver = glucose_liver
+//Glucose in liver = glucose_liver
