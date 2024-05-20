@@ -1,5 +1,5 @@
 ########## NAME
-pancreas_liver
+pancreas_liver_hill2
 
 ########## METADATA
 timeunit = m
@@ -9,11 +9,11 @@ timeunit = m
 ########## STATES
 ddt_glucose_OGTT = -v1
 ddt_glucose_stomach = v1 - v2
-ddt_glucose_blood = v2 -v3 - v6 + v7
+ddt_glucose_blood = v2 - v3 + v7
 
 ddt_insulin_blood = v4 -v5
 
-ddt_glucose_liver = v6 - v7
+ddt_glucose_liver = v3 - v7
 
 glucose_OGTT(0) = 0 // mg
 glucose_stomach(0) = 0
@@ -28,18 +28,18 @@ k3 = 1
 k4 = 1
 k4a = 1
 k5 = 1
-k6 = 1
 k7 = 1
 k7inhib =1
 kM = 1
+kMglu = 1
+n = 1
 
 ########## VARIABLES
 v1 = k1 * glucose_OGTT
 v2 = k2 * glucose_stomach
 v3 = k3 * glucose_blood*insulin_blood
-v4 = k4 * glucose_blood + k4a
+v4 = k4 * glucose_blood^n/(kMglu^n + glucose_blood^n) + k4a
 v5 = k5 * insulin_blood
-v6 = k6 * glucose_blood*insulin_blood
 v7 = k7 * (glucose_liver/(kM+glucose_liver))/(1+k7inhib*glucose_blood)
 
 ########## FUNCTIONS

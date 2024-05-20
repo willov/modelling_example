@@ -1,5 +1,5 @@
 ########## NAME
-pancreas_liver
+pancreas_liver_hill
 
 ########## METADATA
 timeunit = m
@@ -32,12 +32,14 @@ k6 = 1
 k7 = 1
 k7inhib =1
 kM = 1
+kMglu = 1
+n = 1
 
 ########## VARIABLES
 v1 = k1 * glucose_OGTT
 v2 = k2 * glucose_stomach
 v3 = k3 * glucose_blood*insulin_blood
-v4 = k4 * glucose_blood + k4a
+v4 = k4 * glucose_blood^n/(kMglu^n + glucose_blood^n) + k4a
 v5 = k5 * insulin_blood
 v6 = k6 * glucose_blood*insulin_blood
 v7 = k7 * (glucose_liver/(kM+glucose_liver))/(1+k7inhib*glucose_blood)
@@ -58,3 +60,5 @@ glucose_input = glucose_input @ 0
 Glucose in blood = glucose_blood
 Insulin in blood = insulin_blood
 Glucose in liver = glucose_liver
+insulin production = v4
+insulin production in response to glucose = k4 * glucose_blood^n/(kMglu^n + glucose_blood^n)
