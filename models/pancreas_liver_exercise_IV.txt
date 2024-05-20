@@ -1,5 +1,5 @@
 ########## NAME
-pancreas_liver_hill2
+pancreas_liver_exercise_IV
 
 ########## METADATA
 timeunit = m
@@ -9,11 +9,14 @@ timeunit = m
 ########## STATES
 ddt_glucose_OGTT = -v1
 ddt_glucose_stomach = v1 - v2
-ddt_glucose_blood = v2 - v3 + v7
+ddt_glucose_blood = v2 - v3 + v6 -v7
 
 ddt_insulin_blood = v4 -v5
 
-ddt_glucose_liver = v3 - v7
+ddt_glucose_liver = v3 - v6
+
+ddt_insulin_IV = -v8
+
 
 glucose_OGTT(0) = 0 // mg
 glucose_stomach(0) = 0
@@ -28,10 +31,14 @@ k3 = 1
 k4 = 1
 k4a = 1
 k5 = 1
-k7 = 1
-k7inhib =1
+k6 = 1
+k6inhib =1
 kM = 1
 kMglu = 1
+
+k7 = 0
+k8 = 1
+
 n = 1
 
 ########## VARIABLES
@@ -40,17 +47,21 @@ v2 = k2 * glucose_stomach
 v3 = k3 * glucose_blood*insulin_blood
 v4 = k4 * glucose_blood^n/(kMglu^n + glucose_blood^n) + k4a
 v5 = k5 * insulin_blood
-v7 = k7 * (glucose_liver/(kM+glucose_liver))/(1+k7inhib*glucose_blood)
+v6 = k6 * (glucose_liver/(kM+glucose_liver))/(1+k6inhib*glucose_blood)
+v7 = k7 * glucose_blood
+v8 = k8 * insulin_IV
 
 ########## FUNCTIONS
 
 ########## EVENTS
 glucose_event = glucose_input>0, glucose_OGTT, glucose_OGTT+glucose_input
+insulin_event = insulin_input>0, insulin_IV, insulin_IV+insulin_input
 
 ########## OUTPUTS
 
 ########## INPUTS
 glucose_input = glucose_input @ 0
+insulin_input = insulin_input @ 0
 
 ########## FEATURES
 //Glucose OGTT = glucose_OGTT

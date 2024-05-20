@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-05-20T14:30:25.387Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="6pHxfisb-RVSiEbz1lYO" version="24.4.0" type="device" pages="7">
+<mxfile host="Electron" modified="2024-05-20T14:31:06.957Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="rirJRfVlyGlBVVoCuFGl" version="24.4.0" type="device" pages="7">
   <diagram id="NMiwrWdRVJsLs8OPodjR" name="Simple">
     <mxGraphModel dx="2074" dy="1230" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -323,7 +323,7 @@
         <mxCell id="utHzqzKX-fKPkcxGWewe-4" value="" style="shape=waypoint;sketch=0;fillStyle=solid;size=6;pointerEvents=1;points=[];fillColor=none;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;strokeColor=none;" parent="1" vertex="1">
           <mxGeometry x="420" y="280" width="20" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="utHzqzKX-fKPkcxGWewe-8" value="Insulin_pancreas" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="utHzqzKX-fKPkcxGWewe-8" value="Insulin&lt;br&gt;pancreas" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="410" y="100" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="utHzqzKX-fKPkcxGWewe-14" value="Insulin_blood" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
