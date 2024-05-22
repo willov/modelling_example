@@ -1,3 +1,4 @@
+
 ########## NAME
 pancreas_liver_hill
 
@@ -10,9 +11,7 @@ timeunit = m
 ddt_glucose_OGTT = -v1
 ddt_glucose_stomach = v1 - v2
 ddt_glucose_blood = v2 - v3 + v7
-
 ddt_insulin_blood = v4 -v5
-
 ddt_glucose_liver = v3 - v7
 
 glucose_OGTT(0) = 0 // mg
@@ -53,8 +52,5 @@ glucose_event = glucose_input>0, glucose_OGTT, glucose_OGTT+glucose_input
 glucose_input = glucose_input @ 0
 
 ########## FEATURES
-//Glucose OGTT = glucose_OGTT
-//Glucose in stomach = glucose_OGTT
 Glucose in blood = glucose_blood
 Insulin in blood = insulin_blood
-//Glucose in liver = glucose_liver

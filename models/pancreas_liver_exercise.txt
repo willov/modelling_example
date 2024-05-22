@@ -1,3 +1,4 @@
+
 ########## NAME
 pancreas_liver_exercise
 
@@ -33,7 +34,7 @@ k6inhib =1
 kM = 1
 kMglu = 1
 
-k7 = 0
+kexercise = 0
 n = 1
 
 ########## VARIABLES
@@ -43,7 +44,7 @@ v3 = k3 * glucose_blood*insulin_blood
 v4 = k4 * glucose_blood^n/(kMglu^n + glucose_blood^n) + k4a
 v5 = k5 * insulin_blood
 v6 = k6 * (glucose_liver/(kM+glucose_liver))/(1+k6inhib*glucose_blood)
-v7 = k7 * glucose_blood
+v7 = kexercise * glucose_blood
 
 ########## FUNCTIONS
 
@@ -56,8 +57,5 @@ glucose_event = glucose_input>0, glucose_OGTT, glucose_OGTT+glucose_input
 glucose_input = glucose_input @ 0
 
 ########## FEATURES
-//Glucose OGTT = glucose_OGTT
-//Glucose in stomach = glucose_OGTT
 Glucose in blood = glucose_blood
 Insulin in blood = insulin_blood
-//Glucose in liver = glucose_liver

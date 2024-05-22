@@ -1,3 +1,4 @@
+
 ########## NAME
 simple
 
@@ -36,6 +37,4 @@ glucose_event = glucose_input>0, glucose_OGTT, glucose_OGTT+glucose_input
 glucose_input = glucose_input @ 0
 
 ########## FEATURES
-//Glucose OGTT = glucose_OGTT
-//Glucose in stomach = glucose_OGTT
 Glucose in blood = glucose_blood
